@@ -1,193 +1,101 @@
-" Hello Vim, goodbye Vi
-
+" This must be first, because it changes other options as side effect
 set nocompatible
-filetype off
-call pathogen#infect()
-syntax on
-colorscheme defims
 
-" General Settings
-set anti
-set autoread
-set backspace=indent,eol,start
-set hidden
-set history=1000
-set linebreak
-set nostartofline
-set nowrap
-set shortmess+=filmnrxoOtT
-set showcmd
-set showmatch
-set showmode
-set ttyfast
-set viewoptions=cursor,folds,slash,unix
-set visualbell
-set virtualedit=onemore
+" Use pathogen to easily modify the runtime path to include all
+" plugins under the ~/.vim/bundle directory
+"call pathogen#helptags()
+"call pathogen#runtime_append_all_bundles()
 
-" GVim
-if has("gui_running")
-    if has("gui_win32")
-        set guifont=Consolas:h18:cANSI
-    else
-        set guifont=Inconsolata:h18
-    endif
-endif
+filetype off                  " required
 
-
-" Bundles (Vundle)
-"set rtp+=~/.vim/plugin/vundle/
+" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Bundle 'gmarik/vundle'
-Bundle 'mru.vim'
-Bundle 'CSSMinister'
-Bundle 'watchdog.vim'
-Bundle 'sjl/gundo.vim'
-Bundle 'mattn/gist-vim'
-Bundle 'mattn/webapi-vim'
-Bundle 'godlygeek/tabular'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-markdown'
-Bundle 'inkarkat/vcscommand.vim'
-Bundle 'pangloss/vim-javascript'
-Bundle 'othree/html5-syntax.vim'
-Bundle 'miripiruni/CSScomb-for-Vim'
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+Plugin 'rizzatti/dash.vim'
+
+" Vundle Plugins
+Plugin 'bling/vim-airline'
+
+" End Vundle plugins
+
+" All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" General Mappings
-let mapleader = ','
-nnoremap ; :
-nnoremap W w
-vnoremap < <gv
-vnoremap > >gv
-cmap w!! w !sudo tee % >/dev/null
-command! -nargs=? Vdiff :VCSVimDiff <args>
-map <C-O> <Esc>o
-map! <C-O> <Esc>o
-nmap <C-I> :call zencoding#imageSize()<CR>
-map :cc :VCSCommit<CR>
-map :ws :%s/\s\+$//<CR>
-map :img /\v\<img.*>&(.*width)@!<CR>
-nnoremap <C-P> :nohls<CR>
-inoremap <C-P> <C-O>:nohls<CR>
-nmap a I
-nmap ,d :Vdiff HEAD<CR>
-nmap ,,d :Vdiff
-nmap ,g :%s/^$\n//cgi<CR>
-nmap ,l :VCSLog<CR>
-nmap ,m :SessionSave<CR>
-nmap ,o :MRU<CR>
-nmap ,p :SessionList<CR>
-nmap ,q :!sudo service httpd graceful<CR>
-nmap ,s :source ~/.vimrc<CR>
-nmap ,t :s#<[^>]\+>##g<CR>:nohls<CR>
-nmap ,u :GundoToggle<CR>
-nmap ,v :tabe ~/.vimrc<CR>
-set pastetoggle=<C-H>
-command WQ wq
-command Wq wq
-command W w
-command Q q
-:ca m MRU
-:ca length call LengthSort()
-:ca Length length
-command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
-" Zencoding Mappings
-let g:user_zen_leader_key = '<C-J>'
-let g:user_zen_next_key = '<C-L>'
-let g:user_zen_prev_key = '<C-K>'
 
-" Tab Management
-set tabpagemax=15
-nmap ,tq <Esc>:q<CR>
-nmap ,re <Esc>:tabp<CR>
-nmap ,er <Esc>:tabn<CR>
-nmap ,tm <Esc>:tabm
-nmap ,n <Esc>:tabe 
+set showmatch     " set show matching parenthesis
+set ignorecase    " ignore case when searching
+set smartcase     " ignore case if search pattern is all lowercase, case-sensitive otherwise
+set visualbell           " don't beep
+set noerrorbells         " don't beep
+set title                " change the terminal's title
+set history=1000         " remember more commands and search history
+set undolevels=1000      " use many muchos levels of undo
+set hlsearch      " highlight search terms
+set incsearch     " show search matches as you type
+set number        " show line numbers
+set expandtab     " insert space characters when tab is pressed
+set tabstop=4     " insert n spaces when tab is pressed
+set shiftwidth=4  " insert n spaces when indenting
+set bg=light      " set background/color scheme brightness. ex: light and dark
+set scrolloff=3   " Makes scrolling down suck less
+set paste         " Always have pasting on
+
+"if &t_Co >= 256 || has("gui_running")
+"  " colorscheme darkblue
+"endif
+
+"if &t_Co > 2 || has("gui_running")
+   " switch syntax highlighting on, when the terminal has colors
+   syntax on
+"endif
+
+"set list
+"set listchars=tab:>.,trail:.,extends:#,nbsp:.
+"autocmd filetype html,xml set listchars-=tab:>.
+
+"set mouse=a
+"nmap <silent> ,/ :nohlsearch<CR>
+
+" make lines longer than 120 characters errors (including newline)
+autocmd FileType perl match ErrorMsg /\%>119v.\+/
+
+" Stop doing the annoying 'Ex mode' when hitting shift+Q
+nmap Q <Nop>
 map <D-PageUp> <Esc>:tabp<CR>
 map <D-PageDown> <Esc>:tabn<CR>
+nmap tq <Esc>:q<CR>
+nmap tp <Esc>:tabp<CR>
+nmap tn <Esc>:tabn<CR>
+nmap tm <Esc>:tabm
+nmap te <Esc>:tabe |
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+nmap <C-Up> [e
+nmap <C-Down> ]e
 
-" Backups
-set nobackup
-set noswapfile
-function! MakeBackup()
-    let pos    = line(".")
-    let b:dir  = $HOME . "/.vim/backup/" . strftime("%m.%d.%Y") . "/"
-    let b:file = b:dir . substitute(expand("%:t"), "^\\.", "", "") . strftime(".%H.%M.%S")
-    silent! exe mkdir(b:dir, "p")
-    exe writefile(getline(1,'$'), b:file)
-    exe pos
-endfunction
+" Fix parenthesis cursor highlighting
+"hi MatchParen cterm=none ctermbg=green ctermfg=blue
+"hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
 
-" Undo
-if version >= 703
-    set undodir=$HOME/.vim/undo
-    set undofile
-    set undolevels=1000
-    set undoreload=10000
-endif
-
-" Searching
-set list
-set listchars=tab:▷⋅,trail:⋅,nbsp:⋅
-set incsearch
-set hlsearch
-set ignorecase
-set smartcase
-
-" Folding
-set nofoldenable
-set foldmethod=manual
-set foldminlines=2
-
-" Wild Menu
-set wildmenu
-set wildmode=longest,list,full
-set wildignore=*.swp,*.bak,*.pyc,*.class
-
-" Auto-scroll
-set scrolloff=5
-set sidescrolloff=7
-set sidescroll=1
-
-" Filetype Plugins
-filetype plugin indent on
-
-    "Javascript
-    let g:html_indent_inctags = "html,body,head,tbody"
-    let g:html_indent_script1 = "inc"
-    let g:html_indent_style1 = "inc"
-
-au! BufNewFile,BufRead *.tt setf html
-au! BufNewFile,BufRead *.css set indentkeys=<F13>|set noautoindent|set nosmartindent|set nocindent|set indentexpr=
-au! BufWritePre * silent :call MakeBackup()
-au! BufEnter,CursorHold,CursorHoldI,CursorMoved,CursorMovedI * checktime
-
-" Make/Load View
-au! BufWinLeave * silent mkview
-au! BufRead * silent loadview
-
-" Status Bar
-set noruler
+" Air-line settings
 set laststatus=2
-"set statusline=%F[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 
-" Indents
-set autoindent
-set smartindent
-set shiftround
-
-" Mouse
-
-" Tabs
-set expandtab
-set smarttab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
-set showtabline=2
-if !has('gui')
-    set term=$TERM
-endif
+" Auto indent when adding arrows in hashes in Perl
+inoremap <silent> >        ><C-R>=SmartArrow()<CR>
+function! SmartArrow ()
+    if &filetype =~ '^perl' && search('^.*\S.*\s=>\%#$', 'bn', line('.'))
+        return "\<ESC>"
+            \. ":call EQAS_Align('nmap',{'pattern':'=>'})\<CR>"
+            \. ":call EQAS_Align('nmap',{'pattern':'\\%(\\S\\s*\\)\\@<=#'})\<CR>"
+            \. "A"
+    else
+        return ""
+    endif
+endfunction
