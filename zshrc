@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+source $HOME/.aliases_local
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -79,33 +80,10 @@ source $ZSH/oh-my-zsh.sh
 #export PS1="\d : \t \u@\h : \w \n$ "
 
 #my aliases
-alias cjssh="ssh cjensenb@cjensen.bluehoststaff.com"
-alias xampp="sudo /Applications/XAMPP/xamppfiles/xampp"
-alias alpha="ssh -A main.cjensen.alpha.bluehost.com"
-alias zug="ssh -A -p5190 zugzug.bluehost.com"
-alias ssb="$HOME/scripts/firefox-ssh.sh"
-alias ct="casperjs test"
 alias ls="ls -G"
 alias py="python"
-alias lonny="zug ssh -A ljepson.alpha.bluehost.com"
-alias c='./casper'
-alias cdcasper='cd ~/Dropbox/casper-qa/CasperJS/'
-alias cvps='./casper --live --bh apps/signup/signup_test.js -c="--vps --self_destruct=1" -d'
-alias zug='ssh -A -t -p5190 zugzug2.bluehost.com ssh'
-alias sshzug='ssh -A -p5190 zugzug2.bluehost.com'
 alias epoch='date +%s | pbcopy'
-#alias alphafs="sshfs $USER@main.$USER.alpha.bluehost.com:/var/hp/ ~/mnt/alpha -ofollow_symlinks,reconnect,workaround=rename"
-alias alphafs='perl ~/Google\ Drive/sshfs_mounts/mount_alpha.v0.2.pl'
-alias alphafsu='perl ~/Google\ Drive/sshfs_mounts/umount_alpha.v0.2.pl'
 alias g='git'
-alias syncwait='perl ~/scripts/syncwait'
-
-#tproxi
-alias tssh="/Users/cjensen/.scripts/tproxi.pl"
-
-#docker
-alias dockstart='~/.scripts/boot2docker-startup.sh; dockstarteval'
-alias dockstarteval='eval "$(boot2docker shellinit)"'
 
 bindkey -v
 
