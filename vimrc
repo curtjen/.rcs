@@ -1,11 +1,6 @@
 " This must be first, because it changes other options as side effect
 set nocompatible
 
-" Use pathogen to easily modify the runtime path to include all
-" plugins under the ~/.vim/bundle directory
-"call pathogen#helptags()
-"call pathogen#runtime_append_all_bundles()
-
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -25,9 +20,8 @@ Plugin 'bling/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-let g:airline_powerline_fonts = 1
-filetype plugin indent on    " required
 
+filetype plugin indent on    " required
 
 set showmatch     " set show matching parenthesis
 set ignorecase    " ignore case when searching
@@ -44,24 +38,10 @@ set expandtab     " insert space characters when tab is pressed
 set tabstop=4     " insert n spaces when tab is pressed
 set shiftwidth=4  " insert n spaces when indenting
 set bg=light      " set background/color scheme brightness. ex: light and dark
-set scrolloff=3   " Makes scrolling down suck less
+set scrolloff=10   " Makes scrolling down suck less
 set paste         " Always have pasting on
 
-"if &t_Co >= 256 || has("gui_running")
-"  " colorscheme darkblue
-"endif
-
-"if &t_Co > 2 || has("gui_running")
-   " switch syntax highlighting on, when the terminal has colors
-   syntax on
-"endif
-
-"set list
-"set listchars=tab:>.,trail:.,extends:#,nbsp:.
-"autocmd filetype html,xml set listchars-=tab:>.
-
-"set mouse=a
-"nmap <silent> ,/ :nohlsearch<CR>
+syntax on
 
 " make lines longer than 120 characters errors (including newline)
 autocmd FileType perl match ErrorMsg /\%>119v.\+/
@@ -81,12 +61,10 @@ vnoremap <F1> <ESC>
 nmap <C-Up> [e
 nmap <C-Down> ]e
 
-" Fix parenthesis cursor highlighting
-"hi MatchParen cterm=none ctermbg=green ctermfg=blue
-"hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
-
 " Air-line settings
 set laststatus=2
+" To make the powerline fonts work with Airline
+let g:airline_powerline_fonts = 1
 
 " Auto indent when adding arrows in hashes in Perl
 inoremap <silent> >        ><C-R>=SmartArrow()<CR>
