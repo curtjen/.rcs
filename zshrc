@@ -1,10 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-if [ -f $HOME/.aliases_local ]; then
-    source $HOME/.aliases_local
-fi
-
 # Set CLICOLOR if you want Ansi Colors in iTerm2 
 export CLICOLOR=1
 
@@ -16,7 +12,6 @@ export TERM=xterm-256color
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="cletus_one"
-#ZSH_THEME="agnoster"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -41,7 +36,7 @@ ZSH_THEME="cletus_one"
 # DISABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -88,11 +83,17 @@ source $ZSH/oh-my-zsh.sh
 
 #export PS1="\d : \t \u@\h : \w \n$ "
 
-#my aliases
+# My aliases
 alias ls="ls -G"
 alias py="python"
 alias epoch='date +%s | pbcopy'
 alias g='git'
+alias gitm='branch=$(git describe --contains --all HEAD); git checkout master; git fetch; git pull origin master; git checkout $branch; git merge master;'
+
+# Local Aliases
+if [ -f $HOME/.aliases_local ]; then
+    source $HOME/.aliases_local
+fi
 
 bindkey -v
 
@@ -135,5 +136,4 @@ bindkey "^[m" copy-earlier-word                         # http://chneukirchen.or
 
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
-#source /usr/local/bin/virtualenvwrapper.sh
 export PATH=/usr/local/bin:$PATH
