@@ -88,7 +88,7 @@ alias ls="ls -G"
 alias py="python"
 alias epoch='date +%s | pbcopy'
 alias g='git'
-alias gitm='branch=$(git describe --contains --all HEAD); git checkout master; git fetch; git pull origin master; git checkout $branch; git merge master;'
+#alias gitm='branch=$(git describe --contains --all HEAD); git checkout master; git fetch; git pull origin master; git checkout $branch; git merge master;'
 
 # Local Aliases
 if [ -f $HOME/.aliases_local ]; then
