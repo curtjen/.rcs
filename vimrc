@@ -40,6 +40,7 @@ set shiftwidth=4  " insert n spaces when indenting
 set bg=light      " set background/color scheme brightness. ex: light and dark
 set scrolloff=10   " Makes scrolling down suck less
 set paste         " Always have pasting on
+set backspace=2   " Make backspace work like most other apps
 
 syntax on
 
