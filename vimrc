@@ -11,7 +11,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-Plugin 'rizzatti/dash.vim'
+"Plugin 'rizzatti/dash.vim'
 
 " Vundle Plugins
 Plugin 'bling/vim-airline'
@@ -22,6 +22,8 @@ Plugin 'bling/vim-airline'
 call vundle#end()            " required
 
 filetype plugin indent on    " required
+
+colorscheme sublimemonokai   " Set color scheme
 
 set showmatch     " set show matching parenthesis
 set ignorecase    " ignore case when searching
@@ -37,10 +39,23 @@ set number        " show line numbers
 set expandtab     " insert space characters when tab is pressed
 set tabstop=4     " insert n spaces when tab is pressed
 set shiftwidth=4  " insert n spaces when indenting
-set bg=light      " set background/color scheme brightness. ex: light and dark
+"set bg=light      " set background/color scheme brightness. ex: light and dark
 set scrolloff=10   " Makes scrolling down suck less
-set paste         " Always have pasting on
+"set paste         " Always have pasting on
+set pastetoggle=<F7> " Toggle paste on/off with key
 set backspace=2   " Make backspace work like most other apps
+tab all           " Show tabs for all files opened at once
+
+" FROM DOSWALD'S PRESENTATION
+set ruler
+set showcmd
+set cursorline
+set colorcolumn=120
+"set wildmenu
+"set wildmode=list:longest,full
+set undodir=~/.vim/.undo//
+set backupdir=~/.vim/.backup//
+set directory=~/.vim/.swp//
 
 syntax on
 

@@ -104,7 +104,7 @@ if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
 # many other tests omitted
 else
   case $(ps -o comm= -p $PPID) in
-    sshd|*/sshd) 
+    sshd|*/sshd)
       host_color=$bg[green]$fg[black]$ZREMOTECOLOR
       host_space=" "
     ;;
@@ -116,13 +116,15 @@ if [[ "$PROMPT_SYS_NAME$ZSYSNAME" = "" ]] ; then
 PROMPT=$'
 %{$purple%}[%n]%{$reset_color%} %{$host_color%}[%{$host_space%}%2m%{$host_space%}]%{$reset_color%} %{$turquoise%}[%*]%{$reset_color%}
 %{$limegreen%}[%~]%{$reset_color%}
-$vcs_info_msg_0_$(virtualenv_info)%{$reset_color%}$ '
+$vcs_info_msg_0_$(virtualenv_info)
+%{$reset_color%}$ '
 
 else
 
 PROMPT=$'
 %{$purple%}[%n]%{$reset_color%} %{$host_color%}[%{$host_space%]$PROMPT_SYS_NAME$ZSYSNAME%{$host_space%}]%{$reset_color%} %{$turquoise%}%*%{$reset_color%} %{$limegreen%}[%~]%{$reset_color%}
-$vcs_info_msg_0_$(virtualenv_info)%{$reset_color%}$ '
+$vcs_info_msg_0_$(virtualenv_info)
+%{$reset_color%}$ '
 
 fi
 
