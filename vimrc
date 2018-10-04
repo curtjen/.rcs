@@ -49,7 +49,7 @@ tab all           " Show tabs for all files opened at once
 " FROM DOSWALD'S PRESENTATION
 set ruler
 set showcmd
-set cursorline
+"set cursorline
 set colorcolumn=120
 "set wildmenu
 "set wildmode=list:longest,full
