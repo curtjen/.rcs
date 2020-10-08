@@ -89,7 +89,8 @@ alias ls="ls -G"
 alias py="python"
 alias epoch='date +%s | pbcopy'
 alias g='git'
-alias gpush='branch=$(git describe --contains --all HEAD); git push origin $branch;'
+# Commented out for local command to work
+#alias gpush='branch=$(git describe --contains --all HEAD); git push origin $branch;'
 alias gitd='git diff --color'
 alias gcom='~/.rcs/scripts/git_commit'
 alias mvim='mv ~/.vimrc ~/.vimrc-git-committing'     # Move vim config to avoid conflicts when doing a git pull
