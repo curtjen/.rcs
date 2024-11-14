@@ -89,12 +89,13 @@ alias ls="ls -G"
 alias py="python"
 alias epoch='date +%s | pbcopy'
 alias g='git'
-alias gpush='branch=$(git describe --contains --all HEAD); git push origin $branch;'
+alias gpush='branch=$(git describe --contains --all HEAD); git push origin $branch'
 alias gitd='git diff --color'
 alias gcom='~/.rcs/scripts/git_commit'
 alias mvim='mv ~/.vimrc ~/.vimrc-git-committing'     # Move vim config to avoid conflicts when doing a git pull
 alias mvimback='mv ~/.vimrc-git-committing ~/.vimrc' # Move vim config back
 #alias gitm='branch=$(git describe --contains --all HEAD); git checkout master; git fetch; git pull origin master; git checkout $branch; git merge master;'
+alias mvnode='~/.rcs/scripts/mv_node_modules.sh'
 
 # Local Aliases and Settings
 if [ -f $HOME/.aliases_local ]; then
