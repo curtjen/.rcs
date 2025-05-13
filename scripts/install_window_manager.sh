@@ -26,7 +26,8 @@ if [ -f ~/.aerospace.toml ]; then
     echo "AeroSpace config file already exists. Backing up..."
     mv ~/.aerospace.toml ~/_back.rcs/.aerospace.toml
 fi
-ln -sf ~/.rcs/configs/aerospace.toml ~/.aerospace.toml
+
+ln -sf ~/.rcs/aerospace.toml ~/.aerospace.toml
 
 echo "AeroSpace config file symlinked to ~/.aerospace.toml"
 echo "Done!"
