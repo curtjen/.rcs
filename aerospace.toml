@@ -116,7 +116,6 @@ automatically-unhide-macos-hidden-apps = false
     alt-h = 'focus left'
     alt-n = 'focus down'
     alt-t = 'focus up'
-    alt-t = 'focus up'
     alt-s = 'focus right'
 
 
