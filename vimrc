@@ -42,7 +42,7 @@ set shiftwidth=4  " insert n spaces when indenting
 "set bg=light      " set background/color scheme brightness. ex: light and dark
 set scrolloff=10   " Makes scrolling down suck less
 "set paste         " Always have pasting on
-set pastetoggle=<F7> " Toggle paste on/off with key
+"set pastetoggle=<F7> " Toggle paste on/off with key
 set backspace=2   " Make backspace work like most other apps
 tab all           " Show tabs for all files opened at once
 

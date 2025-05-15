@@ -17,6 +17,10 @@ config.font_size = 14
 -- config.color_scheme = 'Solarized (light)'
 config.color_scheme = 'Afterglow'
 -- config.color_scheme = 'Batman'
+config.colors = {
+  selection_fg = 'Black',
+  selection_bg = 'Lime'
+}
 
 -- Finally, return the configuration to wezterm:
 return config
