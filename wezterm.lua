@@ -19,7 +19,19 @@ config.color_scheme = 'Afterglow'
 -- config.color_scheme = 'Batman'
 config.colors = {
   selection_fg = 'Black',
-  selection_bg = 'Lime'
+  selection_bg = 'Lime',
+  visual_bell = 'rgba(0,0,0,0.25)'
+}
+
+-- ERROR BELL --
+
+config.audible_bell = 'Disabled'
+config.visual_bell = {
+  fade_in_function = 'EaseIn',
+  fade_in_duration_ms = 150,
+  fade_out_function = 'EaseOut',
+  fade_out_duration_ms = 150,
+--  target = 'CursorColor'
 }
 
 -- Finally, return the configuration to wezterm:

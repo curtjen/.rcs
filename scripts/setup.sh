@@ -40,5 +40,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     echo
 fi
 
+# Insall Neovim stuff
+bash ~/.rcs/scripts/install_neovim.sh
+
 # Add a lovely new line after all the scripts finish
 echo
