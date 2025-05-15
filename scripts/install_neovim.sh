@@ -27,8 +27,9 @@ else
 fi
 
 echo "Create symlink..."
-ln -sf ~/.rcs/nvim__init.vim ~/.config/nvim/init.vim
+#ln -sf ~/.rcs/nvim__init.vim ~/.config/nvim/init.vim
+ln -sf ~/.rcs/configs/nvim__init.lua ~/.config/nvim/init.lua
 
-echo "Neovim init file symlinked to ~/.config/nvim/init.vim"
+echo "Neovim init file symlinked to ~/.config/nvim/init.lua"
 echo "Done!"
 echo
