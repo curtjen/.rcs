@@ -3,13 +3,12 @@
 # Install Neovim
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    # Install Neovim via Homebrew
+    # Install via Homebrew
     echo "Installing Neovim via Homebrew..."
     brew install neovim
     echo "Done!"
-# else if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 else
-    # Install Neovim via apt-get
+    # Install via apt-get
     echo "Installing Neovim via apt-get..."
     sudo apt-get install neovim -y
     echo "Done!"
@@ -32,4 +31,9 @@ ln -sf ~/.rcs/configs/nvim__init.lua ~/.config/nvim/init.lua
 
 echo "Neovim init file symlinked to ~/.config/nvim/init.lua"
 echo "Done!"
+
+echo "Install related packages..."
+bash ~/.rcs/scripts/install_ripgrep.sh
+echo "Done!"
+
 echo
